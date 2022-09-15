@@ -4,14 +4,15 @@ import WeatherContainer from "./container/WeatherContainer";
 
 export default function Weather() {
   const [data, setdata] = useState(null);
-  let URI = "http://localhost:80/weather/";
-  // URI ="https://api.weatherapi.com/v1/current.json?key=3bcf74a6f79c4d00ae185227221509&q=London&aqi=no";
+  let URI = "http://localhost:4001/weatherdata";
+  URI =
+    "https://api.weatherapi.com/v1/current.json?key=3bcf74a6f79c4d00ae185227221509&q=London&aqi=no";
 
   useEffect(() => {
     axios.get(URI).then((res) => {
       setdata(res.data);
     });
-  });
+  }, [URI]);
 
   if (data) {
     return (
